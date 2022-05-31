@@ -9,7 +9,7 @@ const roundMsg2 = document.getElementById("roundMessage2");
 const playerSign = document.getElementById("playerSign");
 const cpSign = document.getElementById("cpSign");
 
-const yourScoreMsg = document.getElementById("yourScoreMsg");
+const yourScoreMsg = document.getElementById("playerScoreMsg");
 const cpScoreMsg = document.getElementById("cpScoreMsg");
 
 const buttons = document.querySelectorAll(".btn-choice");
