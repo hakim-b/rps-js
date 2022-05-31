@@ -14,6 +14,10 @@ const cpScoreMsg = document.getElementById("cpScoreMsg");
 
 const buttons = document.querySelectorAll(".btn-choice");
 
+const modal = document.querySelector(".modal");
+const exit = document.querySelector(".exit");
+const finalMsg = document.getElementById("modalMsg");
+
 const getCPSelection = () => {
   let randomNumber = Math.floor(Math.random() * 3);
 
@@ -48,6 +52,16 @@ const playRound = (playerSelection, computerSelection) => {
   }
 }
 
+function toggleModal() {
+  modal.classList.toggle("show-modal");
+}
+
+function windowOnClick(event) {
+  if (event.target === modal) {
+    toggleModal();
+  }
+}
+
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
     let yourHand = button.textContent;
@@ -57,5 +71,22 @@ buttons.forEach((button) => {
     cpSign.textContent = cpHand;
 
     playRound(yourHand, cpHand);
+
+    if (yourPoints === 5) {
+      finalMsg.textContent = "YOU WON!";
+      toggleModal();
+    }
+
+    if (cpPoints === 5) {
+      finalMsg.textContent = "YOU LOSE";
+      toggleModal();
+    }
   });
 });
+
+exit.addEventListener('click', () => {
+  toggleModal();
+  document.location.reload();
+});
+
+window.addEventListener("click", windowOnClick);
