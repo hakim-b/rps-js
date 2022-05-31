@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/rps-js/assets/favicon.17e50649.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>RPS</title>
+  <script type="module" crossorigin src="/rps-js/assets/index.2b92f048.js"></script>
+  <link rel="stylesheet" href="/rps-js/assets/index.1bf94a01.css">
+</head>
+
+<body>
+  <header>
+    <h1>ROCK, PAPER, SCISSORS!</h1>
+  </header>
+
+  <div class="round-messages">
+    <h2 id="roundMessage1">Choose your weapon</h2>
+    <h3 id="roundMessage2">First to score 5 points wins</h3>
+  </div>
+
+  <div class="scores">
+    <div class="score-sign">
+      <div id="playerSign">?</div>
+      <h3 id="playerScoreMsg">You: 0</h3>
+    </div>
+    <div class="score-sign">
+      <div id="cpSign">?</div>
+      <h3 id="cpScoreMsg">CPU: 0</h3>
+    </div>
+  </div>
+
+  <div class="rps-buttons">
+    <button class="btn-choice">✊</button>
+    <button class="btn-choice">✋</button>
+    <button class="btn-choice">✌️</button>
+  </div>
+
+  <div class="modal">
+    <div class="modal-content">
+      <h1 id="modalMsg"></h1>
+      <button class="exit">Restart</button>
+    </div>
+  </div>
+</body>
+
+</html>
