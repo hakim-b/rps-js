@@ -27,29 +27,22 @@ const getCPSelection = () => {
   }
 }
 
-const initScore = () => {
-  yourPoints = 0;
-  cpPoints = 0;
-
-  yourScoreMsg.textContent = `Player: ${yourPoints}`;
-  cpScoreMsg.textContent = `CP: ${cpPoints}`;
-}
-
 const playRound = (playerSelection, computerSelection) => {
-  initScore();
-
   if (playerSelection === computerSelection) {
     roundMsg1.textContent = 'Its a tie!';
+    roundMsg2.textContent = `${playerSelection} and ${computerSelection} are the same`;
   }
 
   if (playerSelection === '✊' && computerSelection === '✌️' || playerSelection === '✋' && computerSelection === '✊' || playerSelection === '✌️' && computerSelection === '✋') {
     yourPoints++;
+    yourScoreMsg.textContent = `Player: ${yourPoints}`;
     roundMsg1.textContent = 'You win';
     roundMsg2.textContent = `${playerSelection} beats ${computerSelection}`;
   }
 
   if (playerSelection === '✊' && computerSelection === '✋' || playerSelection === '✋' && computerSelection === '✌️' || playerSelection === '✌️' && computerSelection === '✊') {
     cpPoints++;
+    cpScoreMsg.textContent = `CP: ${cpPoints}`;
     roundMsg1.textContent = 'You lose';
     roundMsg2.textContent = `${computerSelection} beats ${playerSelection}`;
   }
