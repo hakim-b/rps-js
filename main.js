@@ -33,30 +33,30 @@ const getCPSelection = () => {
 
 const playRound = (playerSelection, computerSelection) => {
   if (playerSelection === computerSelection) {
-    roundMsg1.textContent = 'Its a tie!';
-    roundMsg2.textContent = `${playerSelection} and ${computerSelection} are the same`;
+    roundMsg1.innerText = 'Its a tie!';
+    roundMsg2.innerText = `${playerSelection} and ${computerSelection} are the same`;
   }
 
   if (playerSelection === '✊' && computerSelection === '✌️' || playerSelection === '✋' && computerSelection === '✊' || playerSelection === '✌️' && computerSelection === '✋') {
     yourPoints++;
-    yourScoreMsg.textContent = `Player: ${yourPoints}`;
-    roundMsg1.textContent = 'You win';
-    roundMsg2.textContent = `${playerSelection} beats ${computerSelection}`;
+    yourScoreMsg.innerText = `Player: ${yourPoints}`;
+    roundMsg1.innerText = 'You win';
+    roundMsg2.innerText = `${playerSelection} beats ${computerSelection}`;
   }
 
   if (playerSelection === '✊' && computerSelection === '✋' || playerSelection === '✋' && computerSelection === '✌️' || playerSelection === '✌️' && computerSelection === '✊') {
     cpPoints++;
-    cpScoreMsg.textContent = `CP: ${cpPoints}`;
-    roundMsg1.textContent = 'You lose';
-    roundMsg2.textContent = `${computerSelection} beats ${playerSelection}`;
+    cpScoreMsg.innerText = `CP: ${cpPoints}`;
+    roundMsg1.innerText = 'You lose';
+    roundMsg2.innerText = `${computerSelection} beats ${playerSelection}`;
   }
 }
 
-function toggleModal() {
+const toggleModal = () => {
   modal.classList.toggle("show-modal");
 }
 
-function windowOnClick(event) {
+const windowOnClick = (event) => {
   if (event.target === modal) {
     toggleModal();
   }
@@ -64,21 +64,21 @@ function windowOnClick(event) {
 
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    let yourHand = button.textContent;
+    let yourHand = button.innerText;
     let cpHand = getCPSelection();
 
-    playerSign.textContent = yourHand;
-    cpSign.textContent = cpHand;
+    playerSign.innerText = yourHand;
+    cpSign.innerText = cpHand;
 
     playRound(yourHand, cpHand);
 
     if (yourPoints === 5) {
-      finalMsg.textContent = "YOU WON!";
+      finalMsg.innerText = "YOU WON!";
       toggleModal();
     }
 
     if (cpPoints === 5) {
-      finalMsg.textContent = "YOU LOSE";
+      finalMsg.innerText = "YOU LOSE";
       toggleModal();
     }
   });
